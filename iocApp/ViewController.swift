@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         do {
-            container.register(type: SA.self) { SA() }
+            container.register { SA() }
             let value = try container.resolve(type:SA.self)
             test(desc:"registration ",result:value != nil)
             
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             let value2 = try container.resolve(type:SA.self)
             test(desc: "deregistration",result: value2 == nil)
 
-            container.register(type: SA.self,scope:.shared) { SA() }
+            container.register(scope:.shared) { SA() }
             let value3 = try container.resolve(type:SA.self)
             let value4 = try container.resolve(type:SA.self)
             let succ = value3 == value4

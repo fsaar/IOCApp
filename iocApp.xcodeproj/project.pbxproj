@@ -14,8 +14,8 @@
 		561A5AC5284F97530094221D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561A5AC3284F97530094221D /* Main.storyboard */; };
 		561A5AC7284F97540094221D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 561A5AC6284F97540094221D /* Assets.xcassets */; };
 		561A5ACA284F97540094221D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561A5AC8284F97540094221D /* LaunchScreen.storyboard */; };
-		561A5B1E284FB5FB0094221D /* IOCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561A5B1C284FB5DC0094221D /* IOCFramework.framework */; platformFilter = ios; };
-		561A5B1F284FB5FB0094221D /* IOCFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 561A5B1C284FB5DC0094221D /* IOCFramework.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		561A5B24284FD5450094221D /* IOCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561A5B22284FD5290094221D /* IOCFramework.framework */; platformFilter = ios; };
+		561A5B25284FD5450094221D /* IOCFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 561A5B22284FD5290094221D /* IOCFramework.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				561A5B1F284FB5FB0094221D /* IOCFramework.framework in Embed Frameworks */,
+				561A5B25284FD5450094221D /* IOCFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,7 +46,7 @@
 		561A5AC6284F97540094221D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		561A5AC9284F97540094221D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		561A5ACB284F97540094221D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		561A5B1C284FB5DC0094221D /* IOCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOCFramework.framework; sourceTree = "<group>"; };
+		561A5B22284FD5290094221D /* IOCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOCFramework.framework; sourceTree = "<group>"; };
 		E9B390502E7CC8D71A671487 /* Pods-iocAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iocAppTests.release.xcconfig"; path = "Target Support Files/Pods-iocAppTests/Pods-iocAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07BB575F05E5575D4A154296 /* Pods_iocApp.framework in Frameworks */,
-				561A5B1E284FB5FB0094221D /* IOCFramework.framework in Frameworks */,
+				561A5B24284FD5450094221D /* IOCFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +66,7 @@
 		1B5AB9AC42EF52550056AC9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				561A5B1C284FB5DC0094221D /* IOCFramework.framework */,
+				561A5B22284FD5290094221D /* IOCFramework.framework */,
 				2B58981412E20C63B49CECC4 /* Pods_iocApp.framework */,
 				1C4172AFD78863CC19BC6583 /* Pods_iocAppTests.framework */,
 			);
