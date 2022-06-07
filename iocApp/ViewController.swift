@@ -28,17 +28,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         do {
-            container.register { SA() }
-            let value : SA? = try container.resolve()
-            test(desc:"registration ",result:value != nil)
+            try container.register { SA() }
+            let value : SA = try container.resolve()
+            let _ = value
+            test(desc:"registration ",result:true)
             
             container.deregister(type: SA.self)
-            let value2 : SA? = try container.resolve()
-            test(desc: "deregistration",result: value2 == nil)
+            do {
+                let value2 : SA = try container.resolve()
+                let _ = value2
+                test(desc: "deregistration",result: false)
+            }
+            catch {
+                test(desc: "deregistration",result: true)
+            }
+            
+            try container.register(identifier: "classSA") { SA() }
+            let valueWithId : SA = try container.resolve(identifier:"classSA")
+            let _ = valueWithId
+            test(desc:"registration with identifier",result:true)
+            container.deregister(identifier:"classSA",type: SA.self)
 
-            container.register { SA() }
-            let value3 : SA? = try container.resolve(scope:.shared)
-            let value4 : SA? = try container.resolve(scope:.shared)
+            try container.register { SA() }
+            let value3 : SA = try container.resolve(scope:.shared)
+            let value4 : SA = try container.resolve(scope:.shared)
             let succ = value3 == value4
             test(desc:"Shared scope",result:succ)
         }

@@ -18,27 +18,27 @@
 		</data>
 		<key>Modules/IOCFramework.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		XPUY5nT0v8yw+4aeyINwjOoL2G4=
+		e30qxsNEhj2Zr37XT31q9UtIxig=
 		</data>
 		<key>Modules/IOCFramework.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		XPUY5nT0v8yw+4aeyINwjOoL2G4=
+		e30qxsNEhj2Zr37XT31q9UtIxig=
 		</data>
 		<key>Modules/IOCFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		xGr2qt6Z+re2rls+ggbvpGwtusw=
+		bL7pEX0Odr8eZhimzAgNfCuHX2Y=
 		</data>
 		<key>Modules/IOCFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		odOMV1pDwA8SmOPsH972OsBI89M=
+		RFAvlAFquTcQb7pvv2yPIgDk2XQ=
 		</data>
 		<key>Modules/IOCFramework.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		xGr2qt6Z+re2rls+ggbvpGwtusw=
+		bL7pEX0Odr8eZhimzAgNfCuHX2Y=
 		</data>
 		<key>Modules/IOCFramework.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		odOMV1pDwA8SmOPsH972OsBI89M=
+		RFAvlAFquTcQb7pvv2yPIgDk2XQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -65,42 +65,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			x/tI6Qx41uOn7q8o1Tb4CFPf46d33ZRRGtaIOLzlKeM=
+			wvGIZlPZDlzp6/TKHRC0biWv2eQtlLITGkLjZ8o/s50=
 			</data>
 		</dict>
 		<key>Modules/IOCFramework.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			x/tI6Qx41uOn7q8o1Tb4CFPf46d33ZRRGtaIOLzlKeM=
+			wvGIZlPZDlzp6/TKHRC0biWv2eQtlLITGkLjZ8o/s50=
 			</data>
 		</dict>
 		<key>Modules/IOCFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			v7zKPMvGtXWdQY1wA8XUJSg8+fI0o+aFvg7DVkObJU8=
+			KH+B4uu2qf1HmCGDD/JtOS1vtP1ZW37GBLkeyPpj7nQ=
 			</data>
 		</dict>
 		<key>Modules/IOCFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sm+tmyWueuzvQ5V9gerwBy4pXXyZconkWtSjx1fTRiE=
+			5hvdqwRTIlgROiLZT4n2YGvIvEWzxOkIFkDGonzYVcc=
 			</data>
 		</dict>
 		<key>Modules/IOCFramework.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			v7zKPMvGtXWdQY1wA8XUJSg8+fI0o+aFvg7DVkObJU8=
+			KH+B4uu2qf1HmCGDD/JtOS1vtP1ZW37GBLkeyPpj7nQ=
 			</data>
 		</dict>
 		<key>Modules/IOCFramework.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sm+tmyWueuzvQ5V9gerwBy4pXXyZconkWtSjx1fTRiE=
+			5hvdqwRTIlgROiLZT4n2YGvIvEWzxOkIFkDGonzYVcc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
