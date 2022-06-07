@@ -17,6 +17,10 @@ struct SA : Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(uuid.uuidString)
     }
+    
+    static func ==(lhs : Self,rhs : Self) -> Bool {
+        return lhs.uuid.uuidString == rhs.uuid.uuidString
+    }
 }
 
 
@@ -68,10 +72,17 @@ class IOCContainerSpecs: QuickSpec {
 
         
         context("when calling container instance") {
-            it("should successfully register closure") {
+            it("should successfully register closure with a reference type") {
               
                 container.register(type: A.self) { A() }
                 let value = try! container.resolve(type:A.self)
+                expect(value).notTo(beNil())
+            }
+            
+            it("should successfully register closure with a value type") {
+              
+                container.register(type: SA.self) { SA() }
+                let value = try! container.resolve(type:SA.self)
                 expect(value).notTo(beNil())
             }
             
@@ -95,33 +106,11 @@ class IOCContainerSpecs: QuickSpec {
             }
         }
         
-        context("when working with tags") {
-            fit("should return type when using tag") {
-                container.register(type: A.self,tag:"instance1") { A() }
-                let value = try! container.resolve(type:A.self,tag:"instance1")
-                expect(value).notTo(beNil())
-            }
-            fit("should return different instance for registered type if tag different") {
-                container.register(type: A.self,tag:"instance1") { A() }
-                container.register(type: A.self,tag:"instance2") { A() }
-                let value = try! container.resolve(type:A.self,tag:"instance1")
-                let value2 = try! container.resolve(type:A.self,tag:"instance2")
-                expect(value !== value2).to(beTrue())
-            }
-            
-            fit("should return same instance when same tag provided") {
-                container.register(type: A.self,tag:"instance1") { A() }
-                container.register(type: A.self,tag:"instance2") { A() }
-                let value = try! container.resolve(type:A.self,tag:"instance1")
-                let value2 = try! container.resolve(type:A.self,tag:"instance1")
-                expect(value === value2).to(beTrue())
-            }
-        }
-       
+        
         
         context("when working with scope") {
-            it("should return differenct objects when specifying a scope of transient") {
-                container.register(type: A.self,scope:.transient) {
+            it("should return differenct objects when specifying a unique scope (reference type)") {
+                container.register(type: A.self,scope:.unique) {
                     return A()
                 }
                 let value1 = try! container.resolve(type:A.self)
@@ -129,7 +118,16 @@ class IOCContainerSpecs: QuickSpec {
                 expect(value1) !== value2
             }
             
-            it("should return the same object when specifying a scope of shared") {
+            it("should return differenct objects when specifying a unique scope (value type)") {
+                container.register(type: SA.self,scope:.unique) {
+                    return SA()
+                }
+                let value1 = try! container.resolve(type:SA.self)
+                let value2 = try! container.resolve(type:SA.self)
+                expect(value1) != value2
+            }
+            
+            it("should return the same object when specifying a scope of shared (reference type)") {
                 container.register(type: A.self,scope:.shared) {
                     return A()
                 }
@@ -138,7 +136,16 @@ class IOCContainerSpecs: QuickSpec {
                 expect(value1) === value2
             }
             
-            it ("should default to transient scope when scope is not provided") {
+            it("should return the same object when specifying a scope of shared (value type)") {
+                container.register(type: SA.self,scope:.shared) {
+                    return SA()
+                }
+                let value1 = try! container.resolve(type:SA.self)
+                let value2 = try! container.resolve(type:SA.self)
+                expect(value1) == value2
+            }
+            
+            it ("should default to unique scope when scope is not provided") {
                 container.register(type: A.self) {
                     return A()
                 }
@@ -147,27 +154,7 @@ class IOCContainerSpecs: QuickSpec {
                 expect(value1) !== value2
             }
             
-            it("should return the same object when specifying a scope of weak") {
-                container.register(type: A.self,scope:.weak) {
-                    return A()
-                }
-                let value1 = try! container.resolve(type:A.self)
-                let value2 = try! container.resolve(type:A.self)
-                expect(value1) === value2
-            }
             
-            it("should return / store a weak object when specifying a scope of weak") {
-                var aValue = A()
-                container.register(type: A.self,scope:.weak) { () -> A in
-                    return aValue
-                }
-                let b = B()
-                b.a = try! container.resolve(type:A.self)
-                expect(b.a) === aValue
-                expect(b.a).notTo(beNil())
-                aValue = A()
-                expect(b.a).to(beNil())
-            }
             it("should retain a shared object when specifying a scope of shared") {
                 var aValue = A()
                 container.register(type: A.self,scope:.shared) { () -> A in
@@ -183,28 +170,17 @@ class IOCContainerSpecs: QuickSpec {
         }
         
         context("when calling deregister") {
-            it("should successfully unregister closures with scope transient") {
+            it("should successfully unregister closures with scope unique") {
               
-                container.register(type: A.self,scope:.transient) {
+                container.register(type: A.self,scope:.unique) {
                     return A()
                 }
                 container.deregister(type:A.self)
                 let value = try! container.resolve(type:A.self)
                 expect(value).to(beNil())
             }
-            it("should successfully unregister closures with scope weak") {
-                var aValue1 : A? = A()
-                let aValue2 : A = A()
-
-                container.register(type: A.self,scope:.weak) {
-                    return aValue1 ?? aValue2
-                }
-                weak var weakA = try! container.resolve(type:A.self)
-                aValue1 = nil
-                container.deregister(type:A.self)
-                expect(weakA).to(beNil())
-            }
-            it("should successfully unregister closures with scope shared (same as weak case / clean up singleton storage)") {
+          
+            it("should successfully unregister closures with scope shared ") {
                 var aValue1 : A? = A()
                 let aValue2 : A = A()
 

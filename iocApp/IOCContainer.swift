@@ -18,24 +18,21 @@ class IOCContainer {
     }
     
     enum Scope  {
-        case transient
+        case unique
         case shared
-        case weak
     }
     
     private var resolverRecursionCount = 0
-    typealias ClassResolverBlock = () -> AnyObject
+    typealias ClassResolverBlock = () -> Any
     private var blockStorage : [String:(block:ClassResolverBlock,scope:Scope)] = [:]
-    private var transientStorage : [String:AnyObject] = [:]
-    private var singletonStorage : [String:AnyObject] = [:]
-    private var weakSingletonStorage : [String:WeakRef] = [:]
+    private var singletonStorage : [String:Any] = [:]
 
-    func register<T:AnyObject>(type : T.Type, tag: String? = nil,scope : Scope = .transient,block: @escaping ClassResolverBlock ) {
-        let identifier = key(for: type,tag:tag)
+    func register<T>(type : T.Type, scope : Scope = .unique,block: @escaping ClassResolverBlock ) {
+        let identifier = key(for: type)
         blockStorage[identifier] = (block,scope)
     }
     
-    func resolve<T: AnyObject>(type : T.Type,tag: String? = nil) throws -> T? {
+    func resolve<T>(type : T.Type) throws -> T? {
         resolverRecursionCount += 1
         defer {
             resolverRecursionCount -= 1
@@ -43,27 +40,23 @@ class IOCContainer {
         guard resolverRecursionCount < 10 else {
             throw ContainerError.recursion
         }
-        let identifier = key(for: type, tag: tag)
+        let identifier = key(for: type)
         guard let tuple = blockStorage[identifier] else {
             return nil
         }
         
         switch tuple.scope {
-        case .transient:
-            let obj = instance(for : type,with: identifier, storage: &transientStorage, block: tuple.block)
-            return obj
+        case .unique:
+            let newInstance = tuple.block() as? T
+            return newInstance
         case .shared:
-            let obj = instance(for: type,with: identifier, storage: &singletonStorage,block:tuple.block)
-            return obj
-        case .weak:
-            if let instance = weakSingletonStorage[identifier]?.ref as? T {
+            if let instance = singletonStorage[identifier] as? T {
                 return instance
             }
             guard let newInstance = tuple.block() as? T else {
                 return nil
             }
-            let weakRef = WeakRef(ref: newInstance)
-            weakSingletonStorage[identifier] = weakRef
+            singletonStorage[identifier] = newInstance
             return newInstance
         }
     }
@@ -77,21 +70,8 @@ class IOCContainer {
 }
 
 fileprivate extension IOCContainer {
-    func instance<T:AnyObject>(for type:T.Type,with identifier: String,storage :inout  [String:AnyObject],block:ClassResolverBlock) -> T? {
-       
-        if let instance = storage[identifier] as? T {
-            return instance
-        }
-        guard let newInstance = block() as? T else {
-            return nil
-        }
-        storage[identifier] = newInstance
-        return newInstance
-    }
     
-    func key<T:AnyObject>(for type:T.Type,tag: String? = nil) -> String {
-        let normalisedTag = tag ?? ""
-        let identifier = "\(String(describing: T.self))\(normalisedTag)"
-        return identifier
+    func key<T>(for type:T.Type) -> String {
+        return String(describing: T.self)
     }
 }
