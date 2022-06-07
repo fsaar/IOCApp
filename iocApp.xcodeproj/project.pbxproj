@@ -14,19 +14,10 @@
 		561A5AC7284F97540094221D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 561A5AC6284F97540094221D /* Assets.xcassets */; };
 		561A5ACA284F97540094221D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561A5AC8284F97540094221D /* LaunchScreen.storyboard */; };
 		561A5AD5284F97540094221D /* iocAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A5AD4284F97540094221D /* iocAppTests.swift */; };
-		561A5ADF284F97550094221D /* iocAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A5ADE284F97550094221D /* iocAppUITests.swift */; };
-		561A5AE1284F97550094221D /* iocAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A5AE0284F97550094221D /* iocAppUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		561A5AD1284F97540094221D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 561A5AB2284F97520094221D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 561A5AB9284F97530094221D;
-			remoteInfo = iocApp;
-		};
-		561A5ADB284F97550094221D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 561A5AB2284F97520094221D /* Project object */;
 			proxyType = 1;
@@ -46,9 +37,6 @@
 		561A5ACB284F97540094221D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		561A5AD0284F97540094221D /* iocAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iocAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		561A5AD4284F97540094221D /* iocAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iocAppTests.swift; sourceTree = "<group>"; };
-		561A5ADA284F97550094221D /* iocAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iocAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		561A5ADE284F97550094221D /* iocAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iocAppUITests.swift; sourceTree = "<group>"; };
-		561A5AE0284F97550094221D /* iocAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iocAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +54,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		561A5AD7284F97550094221D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +62,6 @@
 			children = (
 				561A5ABC284F97530094221D /* iocApp */,
 				561A5AD3284F97540094221D /* iocAppTests */,
-				561A5ADD284F97550094221D /* iocAppUITests */,
 				561A5ABB284F97530094221D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +71,6 @@
 			children = (
 				561A5ABA284F97530094221D /* iocApp.app */,
 				561A5AD0284F97540094221D /* iocAppTests.xctest */,
-				561A5ADA284F97550094221D /* iocAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,15 +95,6 @@
 				561A5AD4284F97540094221D /* iocAppTests.swift */,
 			);
 			path = iocAppTests;
-			sourceTree = "<group>";
-		};
-		561A5ADD284F97550094221D /* iocAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				561A5ADE284F97550094221D /* iocAppUITests.swift */,
-				561A5AE0284F97550094221D /* iocAppUITestsLaunchTests.swift */,
-			);
-			path = iocAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,24 +135,6 @@
 			productReference = 561A5AD0284F97540094221D /* iocAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		561A5AD9284F97550094221D /* iocAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 561A5AEA284F97550094221D /* Build configuration list for PBXNativeTarget "iocAppUITests" */;
-			buildPhases = (
-				561A5AD6284F97550094221D /* Sources */,
-				561A5AD7284F97550094221D /* Frameworks */,
-				561A5AD8284F97550094221D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				561A5ADC284F97550094221D /* PBXTargetDependency */,
-			);
-			name = iocAppUITests;
-			productName = iocAppUITests;
-			productReference = 561A5ADA284F97550094221D /* iocAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +149,6 @@
 						CreatedOnToolsVersion = 13.0;
 					};
 					561A5ACF284F97540094221D = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 561A5AB9284F97530094221D;
-					};
-					561A5AD9284F97550094221D = {
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = 561A5AB9284F97530094221D;
 					};
@@ -221,7 +169,6 @@
 			targets = (
 				561A5AB9284F97530094221D /* iocApp */,
 				561A5ACF284F97540094221D /* iocAppTests */,
-				561A5AD9284F97550094221D /* iocAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,13 +185,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		561A5ACE284F97540094221D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		561A5AD8284F97550094221D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,15 +212,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		561A5AD6284F97550094221D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				561A5AE1284F97550094221D /* iocAppUITestsLaunchTests.swift in Sources */,
-				561A5ADF284F97550094221D /* iocAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -288,11 +219,6 @@
 			isa = PBXTargetDependency;
 			target = 561A5AB9284F97530094221D /* iocApp */;
 			targetProxy = 561A5AD1284F97540094221D /* PBXContainerItemProxy */;
-		};
-		561A5ADC284F97550094221D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 561A5AB9284F97530094221D /* iocApp */;
-			targetProxy = 561A5ADB284F97550094221D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -538,52 +464,6 @@
 			};
 			name = Release;
 		};
-		561A5AEB284F97550094221D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RF4LJPC23U;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samedialabs.iocAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = iocApp;
-			};
-			name = Debug;
-		};
-		561A5AEC284F97550094221D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RF4LJPC23U;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samedialabs.iocAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = iocApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -610,15 +490,6 @@
 			buildConfigurations = (
 				561A5AE8284F97550094221D /* Debug */,
 				561A5AE9284F97550094221D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		561A5AEA284F97550094221D /* Build configuration list for PBXNativeTarget "iocAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				561A5AEB284F97550094221D /* Debug */,
-				561A5AEC284F97550094221D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
