@@ -29,16 +29,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         do {
             container.register { SA() }
-            let value = try container.resolve(type:SA.self)
+            let value : SA? = try container.resolve()
             test(desc:"registration ",result:value != nil)
             
             container.deregister(type: SA.self)
-            let value2 = try container.resolve(type:SA.self)
+            let value2 : SA? = try container.resolve()
             test(desc: "deregistration",result: value2 == nil)
 
             container.register(scope:.shared) { SA() }
-            let value3 = try container.resolve(type:SA.self)
-            let value4 = try container.resolve(type:SA.self)
+            let value3 : SA? = try container.resolve()
+            let value4 : SA? = try container.resolve()
             let succ = value3 == value4
             test(desc:"Shared scope",result:succ)
         }
