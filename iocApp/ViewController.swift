@@ -36,9 +36,9 @@ class ViewController: UIViewController {
             let value2 : SA? = try container.resolve()
             test(desc: "deregistration",result: value2 == nil)
 
-            container.register(scope:.shared) { SA() }
-            let value3 : SA? = try container.resolve()
-            let value4 : SA? = try container.resolve()
+            container.register { SA() }
+            let value3 : SA? = try container.resolve(scope:.shared)
+            let value4 : SA? = try container.resolve(scope:.shared)
             let succ = value3 == value4
             test(desc:"Shared scope",result:succ)
         }
