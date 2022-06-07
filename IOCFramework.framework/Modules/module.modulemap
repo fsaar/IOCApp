@@ -1,0 +1,11 @@
+framework module IOCFramework {
+  umbrella header "IOCFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module IOCFramework.Swift {
+    header "IOCFramework-Swift.h"
+    requires objc
+}
