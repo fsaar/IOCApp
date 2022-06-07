@@ -12,6 +12,15 @@ import UIKit
 
 @testable import iocApp
 
+struct SA : Hashable {
+    let uuid = UUID()
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid.uuidString)
+    }
+}
+
+
+
 class A {
     
 }
@@ -84,8 +93,29 @@ class IOCContainerSpecs: QuickSpec {
                 let value = try! container.resolve(type:B.self)
                 expect(value).to(beNil())
             }
+        }
+        
+        context("when working with tags") {
+            fit("should return type when using tag") {
+                container.register(type: A.self,tag:"instance1") { A() }
+                let value = try! container.resolve(type:A.self,tag:"instance1")
+                expect(value).notTo(beNil())
+            }
+            fit("should return different instance for registered type if tag different") {
+                container.register(type: A.self,tag:"instance1") { A() }
+                container.register(type: A.self,tag:"instance2") { A() }
+                let value = try! container.resolve(type:A.self,tag:"instance1")
+                let value2 = try! container.resolve(type:A.self,tag:"instance2")
+                expect(value !== value2).to(beTrue())
+            }
             
-            
+            fit("should return same instance when same tag provided") {
+                container.register(type: A.self,tag:"instance1") { A() }
+                container.register(type: A.self,tag:"instance2") { A() }
+                let value = try! container.resolve(type:A.self,tag:"instance1")
+                let value2 = try! container.resolve(type:A.self,tag:"instance1")
+                expect(value === value2).to(beTrue())
+            }
         }
        
         
