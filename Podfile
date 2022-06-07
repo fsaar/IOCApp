@@ -9,6 +9,6 @@ target 'iocApp' do
 end
 
 target 'iocAppTests' do
-    pod 'Quick', '2.2.0'
-    pod 'Nimble', '8.0.5'
+    pod 'Quick', '~>5.0.1'
+    pod 'Nimble', '~>10.0.0'
 end
